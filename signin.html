@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+    <h1>Sign In</h1>
+    <div id="login">
+      <form action="login.php">
+        <center>
+        Username:-
+        <br>
+          <input type="text" name="user">
+          <br>
+          <br>
+          Password:-
+          <br>
+          <input type="password" name="pass" id="test">
+          <span id="short"></span>
+        </center>
+      </form>
+    </div>
+   <!-- <div class="g-signi2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
+    <center><button type="button" onclick="onSignIn()">Sign In</button></center>
+ 
+    <script>
+      function onSignIn() {
+        //Useful data for your client-side scripts:
+        alert("in Function");
+        var pass=document.getElementById("test");
+        if(pass.value.length<5)
+          document.getElementById("short").innerHTML="Too short";
+        //The ID token you need to pass to your backend:
+      }
+    </script>
+  </body>
+</html>
