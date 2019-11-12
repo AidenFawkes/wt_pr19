@@ -1,0 +1,31 @@
+.span1{
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	 font-size: 20px;
+}
+#sign{
+	padding:20px;
+ 	margin:auto;
+ 	margin-top:10%;
+ 	background-color : rgba(18, 18, 18,0.45);
+ 	height:90%;
+ 	width:20%;
+  
+}
+
+
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid green;
+  background-color: rgba(18, 18, 18,0.45);
+  border-radius: 4px;
+  color: white
+}
+input:focus {
+  background-color: rgb(10, 10, 10);
+  color: white
+}
