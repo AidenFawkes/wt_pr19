@@ -1,28 +1,47 @@
-<html lang="en">
-  <head>
-  </head>
-  <body>
-    <h1>Sign Up</h1>
-    <div id="login">
-      <form action="signup.php">
-        <center>
-          Username:-
-          <br>
-          <input type="text" name="user">
-          <br>
-          <br>
-          Password:-
-          <br>
-          <input type="password" name="pass" id="test">
-          <span id="short"></span>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Account</title>
+  <link rel="icon" id ="favicon" href="rxlogo.png">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="front-page.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="account.css">
+</head>
+<body style=" background: url(Prism_1920x1080.png);">
+<div class="topnav">
+  <a class="active" href="front-page.html" style=""><i class="material-icons" style="font-size: 17px;">home</i> </a>
+  <a href="games.html" >Games List <i class="material-icons" style="font-size:17px">gamepad</i></a>
+  <div class="topnav-right">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="account.html"><i class="material-icons" style="font-size: 17px;margin-top: 1px ">account_circle</i></a>
 
-        </center>
-      </form>
-    </div>
-   <!-- <div class="g-signi2" data-onsuccess="onSignIn" data-theme="dark"></div> -->
-    <center><button type="button" onclick="onSignIn()">Sign In</button></center>
+  </div>
+</div>
+<div id="sign">
+  <form action="login.php">
+        <center><h1>Sign Up</h1></center>
+        
+        <label for="uname">Create Username</label>    
+          <input type="text" name="user"><br><br>
+         
+          <label for="pass">Create Password</label>  
+          <input type="password" name="pass" id="test"><br>
+          
+<!--           <label for="pass">Confirm Password</label>  
+          <input type="password" name="pass" id="test"><br>   -->
+        <span id="short" class="span2"></span>
+      </form><br><br>
+       <center><button type="button" class="button button1" onclick="onSignIn()" ><span class="span1">Sign In</span> </button></center>
+ 
+</div>
 
-    <script>
+</body>
+<script>
       document.getElementById("test").addEventListener("input",onSignIn);
       function nonum(a) {
         var x;
@@ -43,5 +62,4 @@
         //The ID token you need to pass to your backend:
       }
     </script>
-  </body>
 </html>
