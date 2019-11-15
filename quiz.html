@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Account</title>
-  <link rel="icon" id ="favicon" href="rxlogo.png">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
-  <link rel="stylesheet" type="text/css" href="front-page.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+	<title>Quiz</title>
+	<link rel="icon" id ="favicon" href="rxlogo.png">
+	<link rel="stylesheet" type="text/css" href="navbar.css">
+  	<link rel="stylesheet" type="text/css" href="quiz.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="account.css">
-<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YSMcTjfIqYhrhyCxat5Ii10NM7v5OP8KqKmG4NdHo8dWYBGZErR-kmtWD0VACe6AIRLirBR030uJMdJE0poSnU3twQ8xVotdck8D3EbPcIxq8xv5TLTGFkUdllkTTlVBqBNcaPiwapz5cANBmZGxxw" charset="UTF-8"></script></head>
+</head>
 <body style=" background: url(Prism_1920x1080.png);">
-<div class="topnav">
-  <a class="active" href="front-page.html" style=""><i class="material-icons" style="font-size: 17px;">home</i> </a>
-  <a href="games.html" >Games List <i class="material-icons" style="font-size:17px">gamepad</i></a>
-  <div class="topnav-right">
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="account.html"><i class="material-icons" style="font-size: 17px;margin-top: 1px ">account_circle</i></a>
-
-  </div>
+<div id="quiz1">	
+	<span id="question" style="font-size: 26px"></span><br><br>
+	<form id="ans" action="">
+		<label class="container">Dont Enjoy
+			<input class="input1" type="radio" name="1" id="a">
+			<span class="checkmark"></span>
+		</label>
+		<label class="container">Enjoy little less
+			<input class="input1" type="radio" name="1" id="b">
+			<span class="checkmark"></span>
+		</label>
+		<label class="container">Neutral
+			<input class="input1" type="radio" name="1" id="c">
+			<span class="checkmark"></span>
+		</label>
+		<label class="container">Enjoy litle more
+			<input class="input1" type="radio" name="1" id="d">
+			<span class="checkmark"></span>
+		</label>
+		<label class="container">Enjoy a lot
+			<input class="input1" type="radio" name="1" id="e">
+			<span class="checkmark"></span>
+		</label>
+	</form>
+	<div align="right"><button  id="but" class="button button1"  ><span class="span1">Next</span></button></div>
 </div>
-<div id="sign">
-  <form action="login.php">
-        <center><h1>Create an account</h1></center>
-        
-        <label for="uname">Create Username</label>    
-          <input type="text" name="user"><br><br>
-         
-          <label for="pass">Create Password</label>  
-          <input type="password" name="pass" id="test"><br><br>
-          <span id="short" class="span2"></span>
-           <label for="pass">Confirm Password</label>  
-          <input type="password" name="pass" id="test1"><br>   
-        <span id="short1" class="span2"></span>
-      </form><br><br>
-       <center><button type="button" class="button button1" onclick="onSignIn()" ><span class="span1">Sign Up</span> </button></center>
 
- 
-</div>
-<p style="text-align: center;">Already have an account? Click <a href="account.html" class="link">here</a> to login</p>
 </body>
-<script>
-      document.getElementById("test").addEventListener("input",onSignIn);
-      document.getElementById("test1").addEventListener("input",conPass);
-      function nonum(a) {
-        var x;
-        for(x=0;x<a.length;x++)
-          if(!isNaN(a[x]))
-            return false;
-        return true;
-      }
-
-      function onSignIn() {
-        //Useful data for your client-side scripts:
-        document.getElementById("short").innerHTML="";
-        var pass=document.getElementById("test");
-        if(pass.value.length<5)
-          document.getElementById("short").innerHTML+=" Password must be greater than 5 characters,";
-        if(nonum(pass.value))
-          document.getElementById("short").innerHTML+=" Password must contain a digit, ";
-        //The ID token you need to pass to your backend:
-      }
-
-	  function conPass() {
-		document.getElementById("short1").innerHTML="";
-        var pass=document.getElementById("test");
-        var con=document.getElementById("test1");
-		if(pass.value!=con.value)
-          document.getElementById("short1").innerHTML+="Passwords do not match";
-	  }
-    </script>
+<script type="text/javascript">
+	var q=document.getElementById("question");
+	//rpg strategy retro act narr
+	q.innerHTML="RPGs";
+	var count=0;
+	var names=["RPGs","Strategy Games","Retro Games","Action Games","Narrative Focused Games"];
+	var values=[-1,-1,-1,-1,-1];
+	var ans=document.getElementById("ans");
+	var but=document.getElementById("but")
+	but.addEventListener("click",change);
+	function change() {
+		if(document.getElementById("a").checked)
+			values[count]=0;
+		if(document.getElementById("b").checked)
+			values[count]=25;
+		if(document.getElementById("c").checked)
+			values[count]=50;
+		if(document.getElementById("d").checked)
+			values[count]=75;
+		if(document.getElementById("e").checked)
+			values[count]=100;
+		if(count==4) { 
+			display();
+			document.write("Thank you");
+		}
+		count=count+1;
+		q.innerHTML= names[count];
+	}
+	function display() {
+		console.log(values[0]);
+		console.log(values[1]);
+		console.log(values[2]);
+		console.log(values[3]);
+		console.log(values[4]);
+	}
+</script>
 </html>
