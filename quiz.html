@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=9eQCKPEStH9BVw4ZN6In0fW76pxJ1E8mfVP76_0Z2uo2vBgqX44oNKIutzYeyj2NHM_eXJRAJlH1pejn_KJ_1XH_Vl1YgevO7DolGIT-tqI08Fswn_JhAveQPOd46-qAjiKlqmU5oMEVGjPczDYaqg" charset="UTF-8"></script></head>
 <body style=" background: url(Prism_1920x1080.png);">
 <div id="quiz1">	
 	<span id="question" style="font-size: 26px"></span><br><br>
@@ -60,12 +60,12 @@
 			values[count]=75;
 		if(document.getElementById("e").checked)
 			values[count]=100;
+		q.innerHTML= names[count+1];
 		if(count==4) { 
 			display();
-			document.write("Thank you");
+			finish();
 		}
 		count=count+1;
-		q.innerHTML= names[count];
 	}
 	function display() {
 		console.log(values[0]);
@@ -73,6 +73,12 @@
 		console.log(values[2]);
 		console.log(values[3]);
 		console.log(values[4]);
+	}
+	function finish() {
+		document.getElementById("question").innerHTML="Thank you";
+		but.removeEventListener("click",change);
+		document.getElementById("ans").innerHTML="";
+		document.getElementsByClassName("span1")[0].innerHTML="See Recommendations";
 	}
 </script>
 </html>
