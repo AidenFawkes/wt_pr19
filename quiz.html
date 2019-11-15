@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Quiz</title>
+</head>
+<body>
+How much do you enjoy 
+<span id="question"></span>
+<form id="ans" action="">
+	<input type="radio" name="1" value="a">Dont Enjoy<br>
+	<input type="radio" name="1" value="b">Enjoy little less<br>
+	<input type="radio" name="1" value="c">Neutral<br>
+	<input type="radio" name="1" value="d">Enjoy litle more<br>
+	<input type="radio" name="1" value="e">Enjoy a lot<br>
+</form>
+<button id="but">Next</button>
+</body>
+<script type="text/javascript">
+	var q=document.getElementById("question");
+	//rpg strategy retro act narr
+	q.innerHTML="RPGs";
+	var count=0;
+	var names={"RPGs","strategy games","retro games","action games","narrative focused games"};
+	var values[5];
+	var ans=document.getElementById("ans");
+	var but=document.getElementById("but")
+	but.addEventListener("click",change);
+	function change() {
+		if(ans.getElementByValue("a").checked)
+			values[count]=0;
+		if(ans.getElementByValue("b").checked)
+			values[count]=25;
+		if(ans.getElementByValue("c").checked)
+			values[count]=50;
+		if(ans.getElementByValue("d").checked)
+			values[count]=75;
+		if(ans.getElementByValue("e").checked)
+			values[count]=100;
+		count=count+1;
+		q.innerHTML=names[count];	
+
+	}
+</script>
+</html>
