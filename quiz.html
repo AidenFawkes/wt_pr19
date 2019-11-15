@@ -2,16 +2,16 @@
 <html>
 <head>
 	<title>Test Quiz</title>
-</head>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=wnvPdgR8HyU3lK9x-KVkvHk_GzimdFrr0bRZFEc1RNc3ibvxyEs5sYNIzeDodiNt3lvmBZdPNeTDuAqmdXTCvyW8SWKT3bvL5IKURzfPN3tULxMJzV2c57jsk1FoRWKH9NjbdR-BmHzyHb_9dmbIrg" charset="UTF-8"></script></head>
 <body>
 How much do you enjoy 
 <span id="question"></span>
 <form id="ans" action="">
-	<input type="radio" name="1" value="a">Dont Enjoy<br>
-	<input type="radio" name="1" value="b">Enjoy little less<br>
-	<input type="radio" name="1" value="c">Neutral<br>
-	<input type="radio" name="1" value="d">Enjoy litle more<br>
-	<input type="radio" name="1" value="e">Enjoy a lot<br>
+	<input type="radio" name="1" id="a">Dont Enjoy<br>
+	<input type="radio" name="1" id="b">Enjoy little less<br>
+	<input type="radio" name="1" id="c">Neutral<br>
+	<input type="radio" name="1" id="d">Enjoy litle more<br>
+	<input type="radio" name="1" id="e">Enjoy a lot<br>
 </form>
 <button id="but">Next</button>
 </body>
@@ -20,25 +20,35 @@ How much do you enjoy
 	//rpg strategy retro act narr
 	q.innerHTML="RPGs";
 	var count=0;
-	var names={"RPGs","strategy games","retro games","action games","narrative focused games"};
-	var values[5];
+	var names=["RPGs","strategy games","retro games","action games","narrative focused games"];
+	var values=[-1,-1,-1,-1,-1];
 	var ans=document.getElementById("ans");
 	var but=document.getElementById("but")
 	but.addEventListener("click",change);
 	function change() {
-		if(ans.getElementByValue("a").checked)
+		if(document.getElementById("a").checked)
 			values[count]=0;
-		if(ans.getElementByValue("b").checked)
+		if(document.getElementById("b").checked)
 			values[count]=25;
-		if(ans.getElementByValue("c").checked)
+		if(document.getElementById("c").checked)
 			values[count]=50;
-		if(ans.getElementByValue("d").checked)
+		if(document.getElementById("d").checked)
 			values[count]=75;
-		if(ans.getElementByValue("e").checked)
+		if(document.getElementById("e").checked)
 			values[count]=100;
+		if(count==4) { 
+			display();
+			document.write("Thank you");
+		}
 		count=count+1;
-		q.innerHTML=names[count];	
-
+		q.innerHTML=names[count];
+	}
+	function display() {
+		console.log(values[0]);
+		console.log(values[1]);
+		console.log(values[2]);
+		console.log(values[3]);
+		console.log(values[4]);
 	}
 </script>
 </html>
