@@ -9,7 +9,7 @@
     if($conn){
         $dist = 0;
         $final = array();
-        while($rows = $conn->query("SELECT * FROM Game")){
+        while($rows = $conn->query("SELECT * FROM Game ")){
             $dist = distance($user_values,$rows);
             array_push($final,$dist);
         }

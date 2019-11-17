@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <title>My Account</title>
   <link rel="icon" id ="favicon" href="rxlogo.png">
   <link rel="stylesheet" type="text/css" href="navbar.css">
@@ -23,7 +24,7 @@
   </div>
 </div>
 <div id="sign">
-  <form action="login.php">
+  <form action="signup.php" method = 'POST'>
         <center><h1>Create an account</h1></center>
         
         <label for="uname">Create Username</label>    
@@ -35,9 +36,9 @@
 <!--           <label for="pass">Confirm Password</label>  
           <input type="password" name="pass" id="test"><br>   -->
         <span id="short" class="span2"></span>
-      </form><br><br>
-       <center><button type="button" class="button button1" onclick="onSignIn()" ><span class="span1">Sign Up</span> </button></center>
-
+      <br><br>
+       <center><button type="submit" class="button button1" onclick="onSignIn()" ><span class="span1">Sign Up</span> </button></center>
+</form>
  
 </div>
 <p style="text-align: center;">Already have an account? Click <a href="account.html" class="link">here</a> to login</p>
