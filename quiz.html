@@ -2,14 +2,14 @@
 <html>
 <head>
 	<title>Quiz</title>
-	<link rel="icon" id ="favicon" href="rxlogo.png">
+	<!-- <link rel="icon" id ="favicon" href="rxlogo.png">
 	<link rel="stylesheet" type="text/css" href="navbar.css">
   	<link rel="stylesheet" type="text/css" href="quiz.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=9eQCKPEStH9BVw4ZN6In0fW76pxJ1E8mfVP76_0Z2uo2vBgqX44oNKIutzYeyj2NHM_eXJRAJlH1pejn_KJ_1XH_Vl1YgevO7DolGIT-tqI08Fswn_JhAveQPOd46-qAjiKlqmU5oMEVGjPczDYaqg" charset="UTF-8"></script></head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  </head>
 <body style=" background: url(Prism_1920x1080.png);">
 <div id="quiz1">	
 	<span id="question" style="font-size: 26px"></span><br><br>
@@ -34,6 +34,7 @@
 			<input class="input1" type="radio" name="1" id="e">
 			<span class="checkmark"></span>
 		</label>
+		
 	</form>
 	<div align="right"><button  id="but" class="button button1"  ><span class="span1">Next</span></button></div>
 </div>
@@ -49,6 +50,16 @@
 	var ans=document.getElementById("ans");
 	var but=document.getElementById("but")
 	but.addEventListener("click",change);
+	function display(values) {
+		values = values.join(",");
+		$.post("k-nearest-neighbours.php",{values : values});
+	}
+	function finish() {
+		document.getElementById("question").innerHTML="Thank you";
+		but.removeEventListener("click",change);
+		document.getElementById("ans").innerHTML="";
+		document.getElementsByClassName("span1")[0].innerHTML="See Recommendations";
+	}
 	function change() {
 		if(document.getElementById("a").checked)
 			values[count]=0;
@@ -62,23 +73,12 @@
 			values[count]=100;
 		q.innerHTML= names[count+1];
 		if(count==4) { 
-			display();
+			display(values);
 			finish();
 		}
 		count=count+1;
 	}
-	function display() {
-		console.log(values[0]);
-		console.log(values[1]);
-		console.log(values[2]);
-		console.log(values[3]);
-		console.log(values[4]);
-	}
-	function finish() {
-		document.getElementById("question").innerHTML="Thank you";
-		but.removeEventListener("click",change);
-		document.getElementById("ans").innerHTML="";
-		document.getElementsByClassName("span1")[0].innerHTML="See Recommendations";
-	}
+	
+	
 </script>
 </html>

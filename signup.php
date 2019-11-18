@@ -6,7 +6,7 @@
 
 <body>
 <?php
-    $username = "Manu";
+    $username = "Manu";         
     $password = "Math$135";
     $conn = new mysqli("localhost",$username,$password,"Games");
     $user = $_POST['user'];

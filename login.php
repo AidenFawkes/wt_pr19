@@ -36,8 +36,7 @@
         // echo $data;
         
     } 
-    echo "<script> console.log($res); </script>";
-    //header("Location:http://127.0.0.1/account.html");
+    header("Location:http://127.0.0.1/front-page.html");
 
     //echo "Hello3";
     $conn->close();
