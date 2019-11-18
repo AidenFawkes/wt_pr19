@@ -1,7 +1,7 @@
 function storeCookie(username, password) {
   var d=new Date();
   d.setTime(d.getTime()+24*60*60*1000)//1 day expiry
-  document.cookie="user="+username+";pass="+password+";expires="d.UTCString();
+  document.cookie="user="+username+";pass="+password+";expires="+d.UTCString();
 }
 
 function readUser() {
