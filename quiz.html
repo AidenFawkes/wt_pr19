@@ -2,16 +2,17 @@
 <html>
 <head>
 	<title>Quiz</title>
-	<!-- <link rel="icon" id ="favicon" href="rxlogo.png">
+	<link rel="icon" id ="favicon" href="rxlogo.png">
 	<link rel="stylesheet" type="text/css" href="navbar.css">
-  	<link rel="stylesheet" type="text/css" href="quiz.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="quiz.css">
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 <body style=" background: url(Prism_1920x1080.png);">
-<div id="quiz1">	
+<div id="quiz1">
 	<span id="question" style="font-size: 26px"></span><br><br>
 	<form id="ans" action="">
 		<label class="container">Dont Enjoy
@@ -34,7 +35,7 @@
 			<input class="input1" type="radio" name="1" id="e">
 			<span class="checkmark"></span>
 		</label>
-		
+
 	</form>
 	<div align="right"><button  id="but" class="button button1"  ><span class="span1">Next</span></button></div>
 </div>
@@ -53,6 +54,7 @@
 	function display(values) {
 		values = values.join(",");
 		$.post("k-nearest-neighbours.php",{values : values});
+		finish();
 	}
 	function finish() {
 		document.getElementById("question").innerHTML="Thank you";
@@ -72,13 +74,13 @@
 		if(document.getElementById("e").checked)
 			values[count]=100;
 		q.innerHTML= names[count+1];
-		if(count==4) { 
+		if(count==4) {
 			display(values);
-			finish();
+			//finish();
 		}
 		count=count+1;
 	}
-	
-	
+
+
 </script>
 </html>
