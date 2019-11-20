@@ -9,13 +9,13 @@
 <body>
     <?php
     $host = 'localhost';
-    $username = 'Manu';
-    $password = 'Math$135';
-    $dbname = 'Games';
+    $username = 'id11658970_hks';
+    $password = 'adeab';
+    $dbname = 'id11658970_webtech';
 
 
     // Create a connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($host, $username, $password, $dbname);
 
 
     if ($conn->connect_error) {
@@ -30,13 +30,16 @@
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $res = TRUE;
-        $data = "SELECT * FROM users WHERE usname='$uname'";
-        $values = $conn->query($data);
-        $row = $values->fetch_assoc();
         // echo $data;
         
+        echo "<script>window.location.href='https://recommendx.000webhostapp.com/front-page.html'</script>";
+
+        
     } 
-    header("Location:http://127.0.0.1/front-page.html");
+    else{
+        echo "<script>window.location.href='https://recommendx.000webhostapp.com/account.html'</script>";
+    }
+    
 
     //echo "Hello3";
     $conn->close();

@@ -52,7 +52,7 @@
 	but.addEventListener("click",change);
 	function display(values) {
 		values = values.join(",");
-		$.post("k-nearest-neighbours.php",{values : values});
+		$.post("k-nearest-neighbours.php",{$values : values});
 	}
 	function finish() {
 		document.getElementById("question").innerHTML="Thank you";
